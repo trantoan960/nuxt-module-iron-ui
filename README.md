@@ -1,50 +1,84 @@
-# Inkline - Nuxt Module
+<p align="center">
+    <a href="http://inkline.io/">
+        <img src="https://raw.githubusercontent.com/inkline/inkline.io/main/src/assets/images/logo/logo-black.svg" alt="Inkline logo" width=72 height=72>
+    </a>
+</p>
 
-Get the best out of your [Nuxt.js](https://github.com/nuxt/nuxt.js) application using the [Inkline](https://github.com/inkline/inkline) UI/UX Library Nuxt Module.
+<h1 align="center">Inkline - Nuxt 3 Module</h1>
+
+<p align="center">
+    Nuxt 3 Module for Inkline, the intuitive UI Components library that gives you the foundation for building high quality, accessible, and customizable Vue.js Design Systems. Inkline is written and maintained by <a href="https://twitter.com/alexgrozav">@alexgrozav</a>. 
+    <br/>
+    <br/>
+    <a href="https://inkline.io">Homepage</a>
+    ·
+    <a href="https://inkline.io/docs/introduction">Documentation</a>
+    ·
+    <a href="https://github.com/inkline/inkline/issues">Issue Tracker</a>
+</p>
+
+<br/>
+<br/>
 
 ## Installation
 
-If you haven't created a project yet, generate a project using Nuxt:
+### 1. **Create a project**
+
+Create a new Nuxt.js application using the `nuxi` CLI command below or using the [Nuxt.js](https://v3.nuxtjs.org/getting-started/installation/) guide, and follow the instructions provided by the installation wizard.
+
 ```
-npx nuxt-create-app my-app
-cd my-app
+npx nuxi init my-nuxt-app
+
+cd my-nuxt-app
+
+npm install
 ```
 
-Next, add Inkline. Before installing the Inkline plugin, make sure to commit or stash your changes in case you need to revert.
+### 2. **Install Inkline and dependencies**
+
+Install and save Inkline and the Inkline Nuxt 3 Module as a project dependency.
+
 ```
-npm install --save-dev @inkline/nuxt
+npm install --save @inkline/inkline @inkline/nuxt
 ```
 
-### Basic Usage
-Next, add `@inkline/nuxt` to the modules section of your `nuxt.config.js`. This provides the precompiled CSS and JS by default.
+### 3. **Configure your project**
+
+Open your `nuxt.config.ts` or `nuxt.config.js` file and configure your application to use Inkline.
 
 ```js
-module.exports = {
-    modules: [ '@inkline/nuxt' ]
-}
-```
+import { defineNuxtConfig } from 'nuxt3';
 
-### Configuration
-Optionally, you can configure your Inkline Nuxt.js Module using the following configuration options:
- 
-```js
-module.exports = {
-    modules: [ '@inkline/nuxt' ],
+export default defineNuxtConfig({
+    buildModules: [
+        '~/modules/inkline'
+    ],
+    css: [
+        '~/main.scss'
+    ],
     inkline: {
-        config: {
-            validation: {
-                on: ['input']
-            },
-            variant: 'light',
-            autodetectVariant: false
-        }
+        // Plugin options (optional)
     }
-}
+});
 ```
 
-Inkline uses Sass, so you will need to install it as a dependency:
+### 4. **Configure your design**
 
-`npm install -D node-sass sass-loader`
+Next, create a new file called `main.scss` and import Inkline. Learn more about the Design System.
 
-### Tree Shaking
-Inkline automatically takes care of tree shaking using `@nuxt/component`, therefore you don't need to worry about importing anything.
+~~~scss
+@import '@inkline/inkline/css/variables';
+@import '@inkline/inkline/css/mixins';
+
+:root {
+    --color--primary--h: 195deg;
+    --color--primary--s: 77%;
+    --color--primary--l: 39%;
+}
+~~~
+
+### 5. Enjoy using Inkline
+
+Awesome work! You can now start using all the features that Inkline has to offer.
+
+
