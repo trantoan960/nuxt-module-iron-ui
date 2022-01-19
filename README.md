@@ -42,6 +42,12 @@ Install and save Inkline and the Inkline Nuxt 3 Module as a project dependency.
 npm install --save @inkline/inkline @inkline/nuxt
 ```
 
+Inkline uses [Sass](https://sass-lang.com) to pre-process and compile its CSS files. You will need to install it as a development dependency in order to compile the stylesheets.
+
+~~~bash
+npm install --save-dev sass
+~~~
+
 ### 3. **Configure your project**
 
 Open your `nuxt.config.ts` or `nuxt.config.js` file and configure your application to use Inkline.
