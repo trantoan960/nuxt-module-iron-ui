@@ -87,9 +87,9 @@ Next, create a new file called `main.scss` and import Inkline. Learn more about 
 
 Awesome work! You can now start using all the features that Inkline has to offer.
 
-### Troubleshooting
+## Troubleshooting
 
-- **No "exports" defined in ../my-nuxt-app/node_modules/@nuxt/kit/package.json**
+**No "exports" defined in ../my-nuxt-app/node_modules/@nuxt/kit/package.json**
 
 Create a patch file under `scripts/patch.js` and run it.
 
