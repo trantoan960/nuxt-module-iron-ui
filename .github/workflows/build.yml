@@ -18,5 +18,8 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
                   cache: 'npm'
-            - run: npm ci
+            - run: npm install
+            - run: npm run pretest
+            - run: npm install && npm run build
+              working-directory: ./tests/app
             - run: npm run test
