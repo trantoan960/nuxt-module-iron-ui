@@ -1,23 +1,16 @@
 {
-  "name": "2.11",
-  "version": "1.0.0",
-  "description": "My stellar Nuxt.js project",
-  "author": "Alex Grozav",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "nuxi dev",
+    "build": "nuxi build",
+    "start": "node .output/server/index.mjs"
   },
   "dependencies": {
-    "@inkline/nuxt": "file:../../../nuxt-module",
-    "nuxt": "^2.12.2"
+    "@inkline/inkline": ">=3.0.0",
+    "vue": ">=3.0.0"
   },
   "devDependencies": {
-    "@nuxt/components": "^0.2.5",
-    "merge": "^1.2.1",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^8.0.2"
+    "nuxt3": "latest",
+    "sass": ">=1.49.0"
   }
 }
