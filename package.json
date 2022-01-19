@@ -32,8 +32,7 @@
   },
   "peerDependencies": {
     "sass": "*",
-    "@inkline/inkline": ">=3.0.0",
-    "vue": ">=3.0.0"
+    "@inkline/inkline": ">=3.0.0"
   },
   "repository": {
     "type": "git",
@@ -46,6 +45,7 @@
     "vue"
   ],
   "devDependencies": {
+    "@nuxt/schema": "0.1.0-edge",
     "@types/node": "17.0.10",
     "@types/shelljs": "0.8.11",
     "@typescript-eslint/eslint-plugin": "5.10.0",

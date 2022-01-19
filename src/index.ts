@@ -1,5 +1,5 @@
-import { join, resolve, dirname } from 'path';
 import { defineNuxtModule, addPluginTemplate } from '@nuxt/kit';
+import { join, resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
 
@@ -17,7 +17,7 @@ export default defineNuxtModule({
             bridge: true
         }
     },
-    setup: (moduleOptions, { options, ...rest }) => {
+    setup: (moduleOptions, { options }) => {
         options.css = ['@inkline/inkline/inkline.scss'].concat(options.css || []);
 
         addPluginTemplate({

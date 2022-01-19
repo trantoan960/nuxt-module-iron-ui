@@ -23,6 +23,7 @@
         ],
         "types": [
             "vite/client",
+            "@nuxt/schema",
             "@types/node",
             "@types/shelljs"
         ]
