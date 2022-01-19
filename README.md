@@ -89,27 +89,43 @@ Awesome work! You can now start using all the features that Inkline has to offer
 
 ## Troubleshooting
 
-**No "exports" defined in ../my-nuxt-app/node_modules/@nuxt/kit/package.json**
+- **No "exports" defined in ../my-nuxt-app/node_modules/@nuxt/kit/package.json**
+    
+    Create a patch file called `scripts/patch.js` and run it.
 
-Create a patch file under `scripts/patch.js` and run it.
+    ~~~js
+    const fs = require('fs');
+    const path = require('path');
 
-~~~js
-// scripts/patch.js
-const fs = require('fs');
-const path = require('path');
+    const target = path.resolve(__dirname, '../node_modules/@nuxt/kit/package.json');
+    const contents = fs.readFileSync(target);
+    const replaced = contents.replace(
+        '"import": "./lib/index.mjs"', 
+        '"import": "./lib/index.mjs", "require": "./lib/index.mjs"'
+    );
 
-const target = path.resolve(__dirname, '../node_modules/@nuxt/kit/package.json');
-const contents = fs.readFileSync(target);
-const replaced = contents.replace(
-    '"import": "./lib/index.mjs"', 
-    '"import": "./lib/index.mjs", "require": "./lib/index.mjs"'
-);
+    fs.writeFileSync(target)
+    ~~~
 
-fs.writeFileSync(target)
-~~~
+    ~~~bash
+    node scripts/patch.js
+    ~~~
 
-~~~bash
-node patch.js
-~~~
+    Optionally, add it to your **package.json** as a `postinstall` script.
 
-Optionally, add it to your **package.json** as a `postinstall` script.
+- **Argument of type '{ inkline: {...}; }' is not assignable to parameter of type 'NuxtConfig'**
+    
+    Create a file called `nuxt-schema-shim.d.ts` and add the following:
+
+    ~~~ts
+    import type { PluginConfig } from '@inkline/inkline';
+
+    declare module '@nuxt/schema' {
+      interface NuxtConfig {
+        inkline?: PluginConfig;
+      }
+      interface NuxtOptions {
+        inkline?: PluginConfig; 
+      }
+    }
+    ~~~
