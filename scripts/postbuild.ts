@@ -12,7 +12,10 @@ shell.cd(resolve(__dirname, '..'));
  */
 
 shell.mkdir('lib');
-// shell.cp('-R', './lib-cjs/*', 'lib');
+
+shell.cp('./README.md', 'lib');
+shell.cp('./LICENSE', 'lib');
+
 shell.cp('-R', './lib-mjs/*', 'lib');
 shell.cp('./src/plugin.ejs', 'lib');
 
@@ -20,5 +23,4 @@ shell.cp('./src/plugin.ejs', 'lib');
  * Remove additional build folders
  */
 
-// shell.rm('-R', './lib-cjs');
 shell.rm('-R', './lib-mjs');
