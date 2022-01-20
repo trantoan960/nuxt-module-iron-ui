@@ -31,6 +31,7 @@ export default defineNuxtModule({
                 path: join(dirname(require.resolve('@inkline/inkline')), 'components'),
                 pathPrefix: false,
                 pattern: '**/*.vue',
+                ignore: ['**/examples/*.vue'],
                 transpile: true
             });
         }
