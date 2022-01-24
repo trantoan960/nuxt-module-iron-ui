@@ -99,12 +99,12 @@ Awesome work! You can now start using all the features that Inkline has to offer
 
     const target = path.resolve(__dirname, '../node_modules/@nuxt/kit/package.json');
     const contents = fs.readFileSync(target);
-    const replaced = contents.replace(
+    const replaced = contents.toString().replace(
         '"import": "./lib/index.mjs"', 
         '"import": "./lib/index.mjs", "require": "./lib/index.mjs"'
     );
 
-    fs.writeFileSync(target)
+    fs.writeFileSync(target, replaced);
     ~~~
 
     ~~~bash
