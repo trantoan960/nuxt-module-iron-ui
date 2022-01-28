@@ -7,12 +7,16 @@
 <h1 align="center">Inkline - Nuxt 3 Module</h1>
 
 <p align="center">
-    Nuxt 3 Module for Inkline, the intuitive UI Components library that gives you the foundation for building high quality, accessible, and customizable Vue.js Design Systems. Inkline is written and maintained by <a href="https://twitter.com/alexgrozav">@alexgrozav</a>. 
+    Nuxt 3 Module for Inkline, the intuitive UI Components library that gives you the foundation for building high quality, accessible, and customizable Vue.js Design Systems.<br/><br/> Inkline is written and maintained by <a href="https://twitter.com/alexgrozav">@alexgrozav</a>. 
     <br/>
     <br/>
     <a href="https://inkline.io">Homepage</a>
     ·
     <a href="https://inkline.io/docs/introduction">Documentation</a>
+    ·
+    <a href="https://storybook.inkline.io/">Storybook</a>
+    ·
+    <a href="https://stackblitz.com/edit/inkline?file=src/App.vue">Playground</a>
     ·
     <a href="https://github.com/inkline/inkline/issues">Issue Tracker</a>
 </p>
@@ -129,3 +133,17 @@ Awesome work! You can now start using all the features that Inkline has to offer
       }
     }
     ~~~
+
+## Creator
+**Alex Grozav**
+
+- <https://grozav.com>
+- <https://twitter.com/alexgrozav>
+- <https://facebook.com/alexgrozav>
+- <https://github.com/alexgrozav>
+
+If you use Inkline in your daily work and feel that it has made your life easier, please consider sponsoring me on [Github Sponsors](https://github.com/sponsors/alexgrozav). 💖
+
+## Copyright and license
+Code copyright 2017-2022 [Inkline Authors](https://github.com/inkline/inkline/graphs/contributors).
+Code released under the [MIT License](https://github.com/inkline/inkline/blob/master/packages/inkline/LICENSE).
