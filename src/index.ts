@@ -3,9 +3,9 @@ import { join, resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
 
-const require = createRequire(import.meta.url);
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __inklineRequire = createRequire(import.meta.url);
+const __inklineFilename = fileURLToPath(import.meta.url);
+const __inklineDirname = dirname(__inklineFilename);
 
 export default defineNuxtModule({
     meta: {
@@ -13,7 +13,7 @@ export default defineNuxtModule({
         version: '3',
         configKey: 'inkline',
         compatibility: {
-            nuxt: '>=3.0.0',
+            nuxt: '>=2.0.0',
             bridge: true
         }
     },
@@ -21,14 +21,14 @@ export default defineNuxtModule({
         options.css = ['@inkline/inkline/inkline.scss'].concat(options.css || []);
 
         addPluginTemplate({
-            src: resolve(__dirname, 'plugin.ejs'),
+            src: resolve(__inklineDirname, 'plugin.ejs'),
             options: moduleOptions
         });
     },
     hooks: {
         'components:dirs' (dirs) {
             dirs.push({
-                path: join(dirname(require.resolve('@inkline/inkline')), 'components'),
+                path: join(dirname(__inklineRequire.resolve('@inkline/inkline')), 'components'),
                 pathPrefix: false,
                 pattern: '**/*.vue',
                 ignore: ['**/examples/*.vue'],
