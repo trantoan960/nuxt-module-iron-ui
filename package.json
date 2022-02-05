@@ -21,7 +21,7 @@
     "postrelease": "ts-node scripts/postrelease.ts",
     "postversion": "ts-node scripts/postversion.ts",
     "patch": "ts-node scripts/patch.ts",
-    "prepare": "npm run patch && nuxt-module-build --stub && nuxi prepare playground"
+    "prepare": "nuxt-module-build --stub && nuxi prepare playground"
   },
   "files": [
     "**/*"
