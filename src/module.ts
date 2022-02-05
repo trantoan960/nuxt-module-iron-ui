@@ -20,7 +20,7 @@ export default defineNuxtModule({
         const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url));
 
         options.css = ['@inkline/inkline/inkline.scss'].concat(options.css || []);
-        options.build.transpile.push(runtimeDir);
+        options.build.transpile.push('@inkline/inkline');
 
         addPluginTemplate({
             src: resolve(runtimeDir, 'plugin.ejs'),
