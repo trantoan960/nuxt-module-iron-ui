@@ -6,11 +6,13 @@
   "module": "module.mjs",
   "types": "./module.d.ts",
   "scripts": {
+    "predev": "npm run prepare",
     "dev": "nuxi dev tests/app",
+    "prebuild": "npm run prepare",
     "build": "rimraf lib && nuxt-module-build",
     "postbuild": "ts-node scripts/postbuild.ts",
     "lint": "eslint --ext .js,.ts src",
-    "pretest": "ts-node scripts/pretest.ts",
+    "pretest": "npm run prepare && ts-node scripts/pretest.ts",
     "test": "vitest run",
     "pretest:dev": "npm run pretest",
     "test:dev": "vitest",
@@ -18,7 +20,8 @@
     "release": "np",
     "postrelease": "ts-node scripts/postrelease.ts",
     "postversion": "ts-node scripts/postversion.ts",
-    "patch": "ts-node scripts/patch.ts"
+    "patch": "ts-node scripts/patch.ts",
+    "prepare": "npm run patch && nuxt-module-build --stub && nuxi prepare playground"
   },
   "files": [
     "**/*"
