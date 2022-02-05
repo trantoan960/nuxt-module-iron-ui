@@ -8,7 +8,6 @@
   "scripts": {
     "predev": "npm run prepare",
     "dev": "nuxi dev tests/app",
-    "prebuild": "npm run prepare",
     "build": "rimraf lib && nuxt-module-build",
     "postbuild": "ts-node scripts/postbuild.ts",
     "lint": "eslint --ext .js,.ts src",

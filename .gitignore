@@ -10,4 +10,3 @@ coverage
 .DS_Store
 dist-ssr
 *.local
-playground/.nuxt
