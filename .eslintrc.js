@@ -1,17 +1,15 @@
 module.exports = {
+    root: true,
     env: {
         node: true,
         browser: true,
         es2021: true
     },
     extends: [
+        'plugin:@typescript-eslint/recommended',
         'standard'
     ],
-    parserOptions: {
-        ecmaVersion: 12,
-        parser: '@typescript-eslint/parser',
-        sourceType: 'module'
-    },
+    parser: '@typescript-eslint/parser',
     plugins: [
         '@typescript-eslint'
     ],
@@ -26,6 +24,8 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-empty-function': 'off',
-        '@typescript-eslint/explicit-module-boundary-types': 'off'
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
+        '@typescript-eslint/no-var-requires': 'off',
+        '@typescript-eslint/no-empty-interface': 'off'
     }
 };

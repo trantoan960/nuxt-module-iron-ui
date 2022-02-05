@@ -2,7 +2,7 @@ import { defineNuxtModule, addPluginTemplate } from '@nuxt/kit';
 import { join, resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
-import { PluginConfig } from "@inkline/inkline";
+import { PluginConfig } from '@inkline/inkline';
 
 export interface ModuleOptions extends PluginConfig {}
 
