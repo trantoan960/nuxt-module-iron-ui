@@ -2,37 +2,44 @@
   "name": "@inkline/nuxt",
   "version": "3.0.3",
   "description": "Nuxt.js Module for Inkline, the intuitive UI Components library that gives you the foundation for building high-quality, accessible, and customizable Vue.js Design Systems.",
-  "main": "index.mjs",
-  "module": "index.mjs",
+  "main": "module.cjs",
+  "module": "module.mjs",
+  "types": "./module.d.ts",
   "scripts": {
-    "build": "rimraf lib && tsc -d -p tsconfig.mjs.json && mjscjs -p tsconfig.mjs.json",
+    "predev": "npm run prepare",
+    "dev": "nuxi dev tests/app",
+    "prebuild": "npm run prepare",
+    "build": "rimraf lib && nuxt-module-build",
     "postbuild": "ts-node scripts/postbuild.ts",
     "lint": "eslint --ext .js,.ts src",
-    "pretest": "ts-node scripts/pretest.ts",
+    "pretest": "npm run prepare && ts-node scripts/pretest.ts",
     "test": "vitest run",
     "pretest:dev": "npm run pretest",
     "test:dev": "vitest",
     "prerelease": "npm run lint && npm run test && npm run build",
     "release": "np",
     "postrelease": "ts-node scripts/postrelease.ts",
-    "postversion": "ts-node scripts/postversion.ts"
+    "postversion": "ts-node scripts/postversion.ts",
+    "patch": "ts-node scripts/patch.ts",
+    "prepare": "npm run patch && nuxt-module-build --stub && nuxi prepare playground"
   },
   "files": [
     "**/*"
   ],
   "exports": {
     ".": {
-      "import": "./index.mjs",
-      "types": "./index.d.ts"
+      "import": "./module.mjs",
+      "require": "./module.cjs",
+      "types": "./module.d.ts"
     },
     "./*": "./*"
   },
   "dependencies": {
-    "@nuxt/kit": "0.8.1-edge"
+    "@nuxt/kit": "npm:@nuxt/kit-edge@latest"
   },
   "peerDependencies": {
-    "sass": "*",
-    "@inkline/inkline": ">=3.0.0"
+    "@inkline/inkline": ">=3.0.0",
+    "sass": "*"
   },
   "repository": {
     "type": "git",
@@ -45,6 +52,8 @@
     "vue"
   ],
   "devDependencies": {
+    "@inkline/inkline": "^3.0.8",
+    "@nuxt/module-builder": "latest",
     "@nuxt/schema": "0.1.0-edge",
     "@types/node": "17.0.10",
     "@types/shelljs": "0.8.11",
@@ -55,8 +64,8 @@
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "6.0.0",
-    "mjscjs": "1.0.9",
     "np": "7.6.0",
+    "nuxt3": "latest",
     "rimraf": "3.0.2",
     "shelljs": "0.8.5",
     "ts-node": "10.4.0",
@@ -64,6 +73,6 @@
     "vite": "2.7.13",
     "vitest": "0.1.21"
   },
-  "license": "MIT",
+  "license": "ISC",
   "gitHead": "f1538ce4fc953d4090885c0d023bb357e2d1a2b7"
 }

@@ -2,10 +2,9 @@ import { defineNuxtModule, addPluginTemplate } from '@nuxt/kit';
 import { join, resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
+import { PluginConfig } from "@inkline/inkline";
 
-const __inklineRequire = createRequire(import.meta.url);
-const __inklineFilename = fileURLToPath(import.meta.url);
-const __inklineDirname = dirname(__inklineFilename);
+export interface ModuleOptions extends PluginConfig {}
 
 export default defineNuxtModule({
     meta: {
@@ -18,17 +17,22 @@ export default defineNuxtModule({
         }
     },
     setup: (moduleOptions, { options }) => {
+        const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url));
+
         options.css = ['@inkline/inkline/inkline.scss'].concat(options.css || []);
+        options.build.transpile.push(runtimeDir);
 
         addPluginTemplate({
-            src: resolve(__inklineDirname, 'plugin.ejs'),
+            src: resolve(runtimeDir, 'plugin.ejs'),
             options: moduleOptions
         });
     },
     hooks: {
         'components:dirs' (dirs) {
+            const inklineRequire = createRequire(import.meta.url);
+
             dirs.push({
-                path: join(dirname(__inklineRequire.resolve('@inkline/inkline')), 'components'),
+                path: join(dirname(inklineRequire.resolve('@inkline/inkline')), 'components'),
                 pathPrefix: false,
                 pattern: '**/*.vue',
                 ignore: ['**/examples/*.vue'],

@@ -11,16 +11,6 @@ shell.cd(resolve(__dirname, '..'));
  * Copy files to lib folder
  */
 
-shell.mkdir('lib');
-
+shell.mv('dist', 'lib');
 shell.cp('./README.md', 'lib');
 shell.cp('./LICENSE', 'lib');
-
-shell.cp('-R', './lib-mjs/*', 'lib');
-shell.cp('./src/plugin.ejs', 'lib');
-
-/**
- * Remove additional build folders
- */
-
-shell.rm('-R', './lib-mjs');

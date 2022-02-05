@@ -1,15 +1,17 @@
 {
     "compilerOptions": {
         "target": "esnext",
-        "module": "commonjs",
+        "module": "esnext",
         "importHelpers": true,
         "moduleResolution": "node",
         "skipLibCheck": true,
+        "declaration": true,
         "strict": true,
         "jsx": "preserve",
         "sourceMap": true,
         "resolveJsonModule": true,
         "esModuleInterop": true,
+        "preserveSymlinks": true,
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
@@ -32,12 +34,20 @@
         "src/**/*.ts",
         "src/**/*.d.ts",
         "src/**/*.tsx",
-        "src/**/*.vue"
+        "src/**/*.vue",
+        "playground/.nuxt/nuxt.d.ts"
     ],
     "exclude": [
         "dist",
         "lib",
         "package",
         "node_modules"
-    ]
+    ],
+    "ts-node": {
+        "transpileOnly": true,
+        "files": true,
+        "compilerOptions": {
+            "module": "commonjs"
+        }
+    }
 }
