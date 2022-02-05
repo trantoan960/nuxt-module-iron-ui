@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "esnext",
-        "module": "commonjs",
+        "module": "esnext",
         "importHelpers": true,
         "moduleResolution": "node",
         "skipLibCheck": true,
@@ -39,5 +39,12 @@
         "lib",
         "package",
         "node_modules"
-    ]
+    ],
+    "ts-node": {
+        "transpileOnly": true,
+        "files": true,
+        "compilerOptions": {
+            "module": "commonjs"
+        }
+    }
 }

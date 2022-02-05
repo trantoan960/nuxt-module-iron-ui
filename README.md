@@ -4,10 +4,10 @@
     </a>
 </p>
 
-<h1 align="center">Inkline - Nuxt 3 Module</h1>
+<h1 align="center">Inkline - Nuxt Module</h1>
 
 <p align="center">
-    Nuxt 3 Module for Inkline, the intuitive UI Components library that gives you the foundation for building high quality, accessible, and customizable Vue.js Design Systems.<br/><br/> Inkline is written and maintained by <a href="https://twitter.com/alexgrozav">@alexgrozav</a>. 
+    Nuxt Module for Inkline, the intuitive UI Components library that gives you the foundation for building high quality, accessible, and customizable Vue.js Design Systems.<br/><br/> Inkline is written and maintained by <a href="https://twitter.com/alexgrozav">@alexgrozav</a>. 
     <br/>
     <br/>
     <a href="https://inkline.io">Homepage</a>
@@ -63,9 +63,6 @@ export default defineNuxtConfig({
     buildModules: [
         '@inkline/nuxt'
     ],
-    css: [
-        '~/main.scss'
-    ],
     inkline: {
         // Plugin options (optional)
     }
@@ -74,9 +71,10 @@ export default defineNuxtConfig({
 
 ### 4. **Configure your design**
 
-Next, create a new file called `main.scss` and import Inkline. Learn more about the Design System.
+Next, open your `app.vue` file and add a style block with the content below. Learn more about the [Design System](https://inkline.io/docs/introduction/design-system).
 
-~~~scss
+~~~html
+<style lang="scss">
 @import '@inkline/inkline/css/variables';
 @import '@inkline/inkline/css/mixins';
 
@@ -85,6 +83,7 @@ Next, create a new file called `main.scss` and import Inkline. Learn more about 
     --color--primary--s: 77%;
     --color--primary--l: 39%;
 }
+</style>
 ~~~
 
 ### 5. Enjoy using Inkline
