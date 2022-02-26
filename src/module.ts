@@ -3,10 +3,9 @@ import { join, resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
 import { PluginConfig } from '@inkline/inkline';
+import { NuxtModule } from '@nuxt/schema';
 
-export interface ModuleOptions extends PluginConfig {}
-
-export default defineNuxtModule({
+export const module: NuxtModule<PluginConfig> = defineNuxtModule({
     meta: {
         name: '@inkline/nuxt',
         version: '3',
@@ -42,3 +41,5 @@ export default defineNuxtModule({
         }
     }
 });
+
+export default module;
