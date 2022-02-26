@@ -36,7 +36,8 @@ export default defineNuxtModule({
                 pathPrefix: false,
                 pattern: '**/*.vue',
                 ignore: ['**/examples/*.vue'],
-                transpile: true
+                transpile: true,
+                global: true
             });
         }
     }
