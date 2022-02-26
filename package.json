@@ -51,7 +51,7 @@
   ],
   "devDependencies": {
     "@inkline/inkline": "^3.0.8",
-    "@nuxt/module-builder": "latest",
+    "@nuxt/module-builder": "0.1.7",
     "@nuxt/schema": "0.1.0-edge",
     "@types/node": "17.0.10",
     "@types/shelljs": "0.8.11",
