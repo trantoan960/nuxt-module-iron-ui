@@ -57,10 +57,10 @@ npm install --save-dev sass
 Open your `nuxt.config.ts` or `nuxt.config.js` file and configure your application to use Inkline.
 
 ```js
-import { defineNuxtConfig } from 'nuxt3';
+import { defineNuxtConfig } from 'nuxt';
 
 export default defineNuxtConfig({
-    buildModules: [
+    modules: [
         '@inkline/nuxt'
     ],
     inkline: {
