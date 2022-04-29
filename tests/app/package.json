@@ -10,7 +10,7 @@
     "vue": ">=3.0.0"
   },
   "devDependencies": {
-    "nuxt3": "latest",
+    "nuxt": "^3.0.0-rc.1",
     "sass": ">=1.49.0"
   }
 }
