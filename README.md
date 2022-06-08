@@ -75,9 +75,6 @@ Next, open your `app.vue` file and add a style block with the content below. Lea
 
 ~~~html
 <style lang="scss">
-@import '@inkline/inkline/css/variables';
-@import '@inkline/inkline/css/mixins';
-
 :root {
     --color--primary--h: 195deg;
     --color--primary--s: 77%;

@@ -18,7 +18,7 @@ export const module: NuxtModule<PluginConfig> = defineNuxtModule({
     setup: (moduleOptions, { options }) => {
         const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url));
 
-        options.css = ['@inkline/inkline/inkline.scss'].concat(options.css || []);
+        options.css = (options.css || []).concat(['@inkline/inkline/inkline.scss']);
         options.build.transpile.push('@inkline/inkline');
 
         addPluginTemplate({
