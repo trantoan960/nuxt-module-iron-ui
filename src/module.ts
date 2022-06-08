@@ -36,7 +36,7 @@ export const module: NuxtModule<PluginConfig> = defineNuxtModule({
                 pattern: '**/*.vue',
                 ignore: ['**/examples/*.vue'],
                 transpile: true,
-                global: true
+                global: false
             });
         }
     }
