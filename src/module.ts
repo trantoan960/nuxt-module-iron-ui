@@ -5,7 +5,12 @@ import { createRequire } from 'module';
 import { PluginConfig } from '@inkline/inkline';
 import { NuxtModule } from '@nuxt/schema';
 
-export const module: NuxtModule<PluginConfig> = defineNuxtModule({
+interface ModuleConfig {
+    css: boolean;
+    sassVariables: string[];
+}
+
+export const module: NuxtModule<PluginConfig & ModuleConfig> = defineNuxtModule({
     meta: {
         name: '@inkline/nuxt',
         version: '3',
@@ -15,10 +20,15 @@ export const module: NuxtModule<PluginConfig> = defineNuxtModule({
             bridge: true
         }
     },
-    setup: (moduleOptions, { options }) => {
+    setup: ({ sassVariables, css, ...moduleOptions }, { options }) => {
         const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url));
 
-        options.css = (options.css || []).concat(['@inkline/inkline/inkline.scss']);
+        if (css) {
+            options.css = (sassVariables || [])
+                .concat(['@inkline/inkline/inkline.scss'])
+                .concat(options.css || []);
+        }
+
         options.build.transpile.push('@inkline/inkline');
 
         addPluginTemplate({
