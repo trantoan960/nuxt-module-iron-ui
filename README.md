@@ -69,10 +69,11 @@ export default defineNuxtConfig({
 });
 ```
 
-| Property              | Type     | Description                                                     |
-|-----------------------|----------|-----------------------------------------------------------------|
-| inkline.css           | Boolean  | Enable or disable adding Inkline's stylesheet automatically.    |
-| inkline.sassVariables | String[] | Paths to SCSS Variables to prepend before Inkline's stylesheet. |
+| Property              | Type     | Description                                                               | Default |
+|-----------------------|----------|---------------------------------------------------------------------------|---------|
+| inkline.css           | Boolean  | Enable or disable adding Inkline's stylesheet automatically.              | true    |
+| inkline.sassVariables | String[] | Paths to SCSS Variables to prepend before Inkline's stylesheet.           | []      |
+| inkline.global        | Boolean  | Register components to be globally available. This disables tree-shaking. | true    |
 
 ### 4. **Configure your design**
 
@@ -91,6 +92,9 @@ Next, open your `app.vue` file and add a style block with the content below. Lea
 ### 5. Enjoy using Inkline
 
 Awesome work! You can now start using all the features that Inkline has to offer.
+
+
+## Troubleshooting
 
 - **No "exports" defined in ../my-nuxt-app/node_modules/@nuxt/kit/package.json**
     

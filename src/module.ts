@@ -1,4 +1,4 @@
-import { defineNuxtModule, addPluginTemplate } from '@nuxt/kit';
+import { defineNuxtModule, addPluginTemplate, addComponentsDir } from '@nuxt/kit';
 import { join, resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
@@ -20,10 +20,11 @@ export const module: NuxtModule<PluginConfig & ModuleConfig> = defineNuxtModule(
             bridge: true
         }
     },
-    setup: ({ sassVariables, css, ...moduleOptions }, { options }) => {
+    setup: async ({ sassVariables, css, global, ...moduleOptions }, { options }) => {
         const runtimeDir = fileURLToPath(new URL('./runtime', import.meta.url));
+        const inklineRequire = createRequire(import.meta.url);
 
-        if (css) {
+        if (css !== false) {
             options.css = (sassVariables || [])
                 .concat(['@inkline/inkline/inkline.scss'])
                 .concat(options.css || []);
@@ -35,20 +36,15 @@ export const module: NuxtModule<PluginConfig & ModuleConfig> = defineNuxtModule(
             src: resolve(runtimeDir, 'plugin.ejs'),
             options: moduleOptions
         });
-    },
-    hooks: {
-        'components:dirs' (dirs) {
-            const inklineRequire = createRequire(import.meta.url);
 
-            dirs.push({
-                path: join(dirname(inklineRequire.resolve('@inkline/inkline')), 'components'),
-                pathPrefix: false,
-                pattern: '**/*.vue',
-                ignore: ['**/examples/*.vue'],
-                transpile: true,
-                global: false
-            });
-        }
+        await addComponentsDir({
+            path: join(dirname(inklineRequire.resolve('@inkline/inkline')), 'components'),
+            pathPrefix: false,
+            pattern: '**/*.vue',
+            ignore: ['**/examples/*.vue'],
+            transpile: true,
+            global: global !== false
+        });
     }
 });
 
