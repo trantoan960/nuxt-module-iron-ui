@@ -50,7 +50,7 @@
     "vue"
   ],
   "devDependencies": {
-    "@inkline/inkline": "^3.0.8",
+    "@inkline/inkline": "github:trantoan960/iron-ui",
     "@nuxt/module-builder": "0.1.7",
     "@nuxt/schema": "^3.0.0-rc.1",
     "@types/node": "17.0.10",
